@@ -1,0 +1,39 @@
+import { Injectable } from '@angular/core';
+import {Client, Frame, IMessage} from "@stomp/stompjs";
+import * as SockJS from 'sockjs-client';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WebSocketService {
+  private _stompClient: Client;
+  private _subscriptions: {[key: string]: any};
+
+  constructor() {
+    this._stompClient = new Client();
+    this._subscriptions = {};
+    this._stompClient = new Client({
+      webSocketFactory: () => new SockJS('http://localhost:8090/ws-bulletin'),
+      debug: (str) => console.log(str),
+      reconnectDelay: 5000,
+      heartbeatIncoming: 4000,
+      heartbeatOutgoing: 4000,
+    });
+    this._stompClient.activate();
+  }
+
+  public subscribe(topic: string, callback: (message: IMessage) => void): void {
+    this._stompClient.onConnect = () => {
+      if (!this._subscriptions[topic]) {
+        this._subscriptions[topic] = this._stompClient.subscribe(topic, callback);
+      }
+    };
+  }
+
+  public unsubscribe(topic: string): void {
+    if (this._subscriptions[topic]) {
+      this._subscriptions[topic].unsubscribe();
+      delete this._subscriptions[topic];
+    }
+  }
+}

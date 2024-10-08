@@ -1,0 +1,31 @@
+@import "src/assets/styles/commons/global-styles";
+@import "src/app/features/news/pages/nws-news-feed/nws-news-feed.component";
+@import "projects/nws-system-ui/src/lib/components/nws-button/nws-button.component";
+@import "projects/nws-system-ui/src/lib/components/nws-input/nws-input.component";
+
+.login-logo-section {
+  width: 20%;
+  background-color: $primary-color;
+}
+
+.login-form-section {
+  width: 80%;
+  display: flex;
+}
+
+.nws-signup-link {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+@media (max-width: 1400px) {
+  .login-logo-section {
+    width: 0;
+    opacity: 0;
+  }
+
+  .login-form-section {
+    width: 100%;
+  }
+}
+

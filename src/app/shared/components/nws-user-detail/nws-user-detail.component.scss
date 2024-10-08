@@ -1,0 +1,25 @@
+@import "src/assets/styles/commons/global-styles";
+
+.nws-user-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.nws-avatar-container {
+  width: 45px;
+}
+
+.nws-user-information-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  align-content: center;
+  width: 100%;
+}
+
+
+
+

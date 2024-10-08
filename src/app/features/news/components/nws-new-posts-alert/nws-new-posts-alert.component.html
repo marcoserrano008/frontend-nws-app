@@ -1,0 +1,10 @@
+<header *ngIf="isVisible && newPostsCounter > 0" class="nws-new-posts-alert-container nws-centered">
+  <section class="nws-label-text">
+    There are {{newPostsCounter}} new news, click
+    <button (click)="reloadPosts()" class="nws-button-transparent nws-label-text nws-text-color-primary nws-text-semibold">here</button>
+    to reload
+  </section>
+  <button (click)="closeAlert()" class="nws-button-transparent nws-label-text nws-text-medium-large">
+    &#10006;
+  </button>
+</header>

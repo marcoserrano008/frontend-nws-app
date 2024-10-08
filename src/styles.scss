@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "projects/nws-system-ui/src/assets/styles/commons/tokens";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-family;
+  color: $font-color-primary;
+  margin-top: 50px;
+}
+
+body {
+  background-color: $background-color-dark;
+}

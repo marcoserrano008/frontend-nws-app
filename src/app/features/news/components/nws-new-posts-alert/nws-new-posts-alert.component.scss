@@ -1,0 +1,15 @@
+@import "src/assets/styles/commons/global-styles";
+
+.nws-new-posts-alert-container {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  background-color: $background-color-medium;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 24px;
+  position: sticky;
+  width: 100%;
+  top: 50px;
+  z-index: 999;
+}

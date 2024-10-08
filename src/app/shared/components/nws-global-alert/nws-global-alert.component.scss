@@ -1,0 +1,54 @@
+@import "src/assets/styles/commons/global-styles";
+
+.nws-alerts-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+  width: 300px;
+}
+
+.nws-global-alert {
+  border-radius: 4px;
+  padding: 10px;
+  bottom: 20px;
+  right: 20px;
+  background-color: $background-color-medium-dark;
+  margin-bottom: 10px;
+
+  &__header {
+    font-size: medium;
+    margin: 4px auto 4px;
+    display: flex;
+    align-items: center;
+
+    &__status {
+      width: 16px;
+      height: 16px;
+      user-select: none;
+      color: $success-color;
+    }
+
+    &__title {
+      font-weight: bold;
+      margin-left: 8px;
+      width: 250px;
+    }
+
+    &__close {
+      cursor: pointer;
+      font-size: large;
+      user-select: none;
+      margin: 0 4px;
+      background-color: transparent;
+      border: none;
+      color: $neutral-color-light;
+    }
+  }
+
+  &__content {
+    font-size: small;
+    margin: 4px;
+    margin-left: 24px;
+  }
+}

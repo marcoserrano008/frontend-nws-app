@@ -1,0 +1,8 @@
+<section class="nws-comments-section nws-horizontal-align-top">
+      <textarea [(ngModel)]="commentBody" type="text" name="comment" nwsAutoResizeTextarea
+                class="nws-textarea-field nws-input-text"
+                [placeholder]="'Add a comment'"></textarea>
+  <button (click)="createComment()" class="nws-button-transparent"><span
+    class="material-symbols-outlined nws-send-button-icon">send</span>
+  </button>
+</section>

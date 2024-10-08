@@ -1,0 +1,79 @@
+@import "src/assets/styles/commons/global-styles";
+
+
+
+.nws-news-feed {
+  max-width: 800px;
+  margin: 25px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  position: relative;
+}
+
+.nws-post-feed {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  background-color: #232323;
+  border-radius: 6px;
+  padding: 28px;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: rgb(37, 37, 37);
+  }
+}
+
+.nws-comment-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  gap: 4px;
+  color: $font-color-primary;
+  width: fit-content;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.nws-news-create-button {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 60px;
+  height: 60px;
+  background-color: $primary-color;
+  font-size: 2.5rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: $shadow-medium;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.73);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+
+

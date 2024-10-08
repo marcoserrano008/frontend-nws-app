@@ -1,0 +1,20 @@
+<article class="nws-full-page-container">
+  <section class="login-logo-section nws-centered nws-logo-text-large">
+    N<span class="nws-logo-text-highlight">e</span>ws-App
+  </section>
+  <section class="login-form-section nws-centered">
+    <form class="nws-form-container">
+      <span class="nws-centered nws-text-large">Welcome</span>
+      <nws-label class="nws-left-aligned" [label]="'Username'">
+        <input type="text" [(ngModel)]="username" name="username" class="nws-input-field nws-input-text">
+      </nws-label>
+      <nws-label class="nws-left-aligned" [label]="'Password'">
+        <input type="password" [(ngModel)]="password" name="password" class="nws-input-field nws-input-text">
+      </nws-label>
+      <button type="button" (click)="onLogin()" class="nws-button nws-button--primary nws-label-text">Log In</button>
+      <span>
+        Don't have an account? <a routerLink="/auth/signup" class="nws-signup-link">Sign Up</a>
+      </span>
+    </form>
+  </section>
+</article>

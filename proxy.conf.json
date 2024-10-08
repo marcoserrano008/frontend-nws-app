@@ -1,0 +1,21 @@
+{
+  "/user-service": {
+    "target": "http://localhost:8091",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/user-service": ""
+    }
+
+  },
+  "/news-service": {
+    "target": "http://localhost:8090",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/news-service": ""
+    }
+  }
+}

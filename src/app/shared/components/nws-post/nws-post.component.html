@@ -1,0 +1,10 @@
+<article class="nws-post">
+  <nws-user-detail [userDetail]="bulletin.senderUser" [information]="bulletin.createdDate"></nws-user-detail>
+  <span class="nws-post-body nws-label-text">{{bulletin.body}}</span>
+  <section class="nws-files-section">
+    <ng-container *ngFor="let attachment of bulletin.attachments; index as i">
+      <nws-file-detail class="nws-file" [attachment]="attachment"></nws-file-detail>
+    </ng-container>
+  </section>
+</article>
+

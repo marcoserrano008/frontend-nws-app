@@ -1,0 +1,12 @@
+<section *ngIf="showAlert" class="bvg-alert">
+  <header class="bvg-alert__header">
+    <div class="bvg-alert__header__status">
+      <span class="bvg-symbols-outlined" [style.color]="iconColor">
+        {{icon}}
+      </span>
+    </div>
+    <span class="bvg-alert__header__title">{{title}}</span>
+    <button (click)="closeAlert()" class="bvg-alert__header__close" aria-label="Close alert">&#10005;</button>
+  </header>
+  <main class="bvg-alert__content">{{description}}</main>
+</section>

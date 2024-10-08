@@ -1,0 +1,31 @@
+<section class="nws-create-post">
+  <form (ngSubmit)="createPost()" class="nws-post-feed nws-news-feed">
+    <button type="button" (click)="close()"
+            class="nws-create-post-close-button nws-label-text nws-text-large nws-button-transparent">&#x2715;
+    </button>
+    <label class="nws-text-medium-large nws-text-semibold">
+      <span class="material-symbols-outlined nws-label-text nws-text-large">edit</span>
+      Create Post
+    </label>
+    <nws-label [label]="'Content'">
+      <textarea nwsAutoResizeTextarea [(ngModel)]="postContent" name="content"
+                class="nws-textarea-field nws-input-text"></textarea>
+    </nws-label>
+    <div class="nws-custom-file-upload">
+      <button type="button" (click)="fileInput.click()"><span class="nws-text-semibold">&nbsp;+&nbsp;</span>Attach file
+      </button>
+      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+    </div>
+    <ul class="nws-list">
+      <li *ngFor="let file of files; index as i" class="nws-list-item">
+        <span>{{ file.name }}</span>
+        <button type="button" (click)="removeFile(i)" class="nws-button-transparent nws-label-text nws-text-large">
+          &#x2715;
+        </button>
+      </li>
+    </ul>
+    <button type="submit" class="nws-create-post-button nws-button nws-button--primary">Create
+    </button>
+  </form>
+
+</section>

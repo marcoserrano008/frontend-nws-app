@@ -1,0 +1,10 @@
+@import "src/assets/styles/commons/global-styles";
+
+.nws-floating-menu {
+  width: fit-content;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: $shadow-medium;
+  z-index: 1000;
+}

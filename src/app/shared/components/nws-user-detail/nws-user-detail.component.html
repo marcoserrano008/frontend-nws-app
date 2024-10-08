@@ -1,0 +1,14 @@
+<div class="nws-user-detail">
+  <section class="nws-avatar-container">
+    <nws-avatar class="avatar" [avatarTemplate]="avatarTpl"></nws-avatar>
+    <ng-template #avatarTpl>
+      <img class="avatar-img" src="assets/images/profile_1.webp" alt="User Avatar">
+    </ng-template>
+  </section>
+  <section class="nws-user-information-container">
+    <label class="nws-label-text nws-text-semibold">{{userDetail.firstName}} {{userDetail.lastName}}</label>
+    <label class="nws-left-icon nws-label-text nws-text-medium-small">
+      <span class="material-symbols-outlined medium-small-icon">calendar_today</span>
+      {{information | nwsDateFormater}}</label>
+  </section>
+</div>

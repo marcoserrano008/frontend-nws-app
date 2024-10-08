@@ -1,0 +1,14 @@
+@import "../../../assets/styles/commons/tokens";
+
+.nws-label-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nws-label-text {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: $font-color-primary;
+}

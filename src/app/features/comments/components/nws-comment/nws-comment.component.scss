@@ -1,0 +1,32 @@
+@import "src/assets/styles/commons/global-styles";
+
+.nws-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  scale: (0.9);
+  border: 1px solid $border-color-neutral;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.nws-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: center;
+  width: 180px;
+  background: none;
+}
+
+.nws-reply {
+  margin-left: 40px;
+  border-left: 1px solid $border-color-neutral-light;
+  padding-left: 16px;
+  box-sizing: border-box;
+}

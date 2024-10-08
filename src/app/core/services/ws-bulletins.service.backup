@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import {Observable, Subject} from "rxjs";
+import {Bulletin} from "@core/models/bulletin.model";
+import {WebSocketService} from "@core/services/web-socket.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WsBulletinsService {
+  private _bulletinSubject: Subject<Bulletin>;
+
+  constructor(private _webSocketService: WebSocketService) {
+    this._bulletinSubject = new Subject<Bulletin>();
+    this._webSocketService.subscribe('/topic/bulletins', (message) => {
+      const bulletin = JSON.parse(message.body) as Bulletin;
+      this._bulletinSubject.next(bulletin);
+    });
+  }
+
+  public get bulletin$(): Observable<Bulletin> {
+    return this._bulletinSubject.asObservable();
+  }
+}

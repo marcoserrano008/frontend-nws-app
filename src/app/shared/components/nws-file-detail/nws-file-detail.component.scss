@@ -1,0 +1,28 @@
+@import "src/assets/styles/commons/global-styles";
+
+.nws-file-detail {
+  background: $background-color-medium-dark;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  gap: 4px;
+  color: $font-color-primary;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 500px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.nws-file-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+

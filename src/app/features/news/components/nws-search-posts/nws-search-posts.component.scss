@@ -1,0 +1,16 @@
+@import "src/assets/styles/commons/global-styles";
+
+.nws-search-posts-container {
+  position: relative;
+  max-width: 300px;
+}
+
+.nws-search-icon {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.5rem;
+}
+
+.nws-input-with-icon {
+  padding-left: 32px;
+}

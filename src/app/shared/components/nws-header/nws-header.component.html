@@ -1,0 +1,15 @@
+<header class="nws-header">
+  <section routerLink="/news" class="nws-logo nws-text-large nws-text-semibold nws-cursor-pointer">News</section>
+  <section class="nws-avatar-container">
+    <nws-avatar (click)="toggleFloatingMenu()"  class="nws-cursor-pointer" [avatarTemplate]="avatarTpl"></nws-avatar>
+    <ng-template #avatarTpl>
+      <img class="avatar-img" src="assets/images/profile_1.webp" alt="User Avatar">
+    </ng-template>
+  </section>
+  <nws-floating-menu *ngIf="isFloatingMenuVisible" class="nws-floating-menu-position">
+    <button (click)="logout()" class="nws-button nws-button--error nws-centered">
+      <span class="material-symbols-outlined">logout</span>
+      Logout
+    </button>
+  </nws-floating-menu>
+</header>

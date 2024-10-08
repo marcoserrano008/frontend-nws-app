@@ -1,0 +1,25 @@
+<section class="nws-comment">
+  <nws-user-detail *ngIf="comment.senderUser" [userDetail]="comment.senderUser" [information]="comment.createdDate"></nws-user-detail>
+  <span>{{ comment.content }}</span>
+
+  <section class="nws-horizontal-align-centered">
+    <button (click)="toggleReplies()" class="nws-button">
+      <span class="material-symbols-outlined nws-label-text">forum</span>
+      <span class="nws-label-text">
+      {{ showReplies ? 'Hide Replies' : 'Show Replies' }} ({{ comment.repliesCounter }})
+    </span>
+    </button>
+    <button (click)="toggleShowReplyInput()" class="nws-button-transparent nws-label-text nws-reply-button">
+      <span class="material-symbols-outlined nws-text-medium-large">reply</span><span>Reply</span>
+    </button>
+  </section>
+
+  <nws-create-comment *ngIf="showReplyInput" [postId]="comment.postId" [parentCommentId]="comment.id"></nws-create-comment>
+</section>
+<div *ngIf="showReplies ">
+  <ng-container *ngFor="let reply of comment.replies; trackBy: trackByCommentId">
+    <section class="nws-reply">
+      <nws-comment [comment]="reply"></nws-comment>
+    </section>
+  </ng-container>
+</div>

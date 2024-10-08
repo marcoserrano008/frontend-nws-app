@@ -1,0 +1,168 @@
+@import "projects/nws-system-ui/src/assets/styles/commons/tokens";
+@import "projects/nws-system-ui/src/lib/components/nws-button/nws-button.component";
+@import "projects/nws-system-ui/src/lib/components/nws-input/nws-input.component";
+@import "projects/nws-system-ui/src/lib/components/nws-textarea/nws-textarea.component";
+
+.nws-label-text {
+  color: $font-color-primary;
+  font-size: 1rem;
+}
+
+.nws-text-semibold {
+  font-weight: 600;
+}
+
+.nws-text-medium-small {
+  font-size: 0.9rem;
+}
+
+.nws-text-medium {
+  font-size: 1rem;
+}
+
+.nws-text-medium-large {
+  font-size: 1.1rem;
+}
+
+.nws-text-large {
+  font-size: 1.3rem;
+}
+
+.nws-left-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.medium-small-icon {
+  font-size: 0.8rem;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+}
+
+.nws-rounded {
+  border-radius: 50%;
+}
+
+.nws-centered {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.nws-button-transparent {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.nws-left-aligned {
+  align-items: start;
+  justify-content: flex-start;
+  text-align: start;
+  align-content: start;
+}
+
+.nws-full-page-container {
+  position: absolute;
+  top: 0;
+  background-color: $background-color-dark;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.nws-logo-text-large {
+  font-size: 3rem;
+  font-weight: bold;
+  color: $background-color-medium-dark;
+}
+
+.nws-logo-text-highlight {
+  color: $font-color-primary;
+}
+
+.nws-text-neutral {
+  color: $font-color-neutral;
+}
+
+.nws-form-container {
+  width: 100%;
+  max-width: 350px;
+  background-color: #232323;
+  border-radius: 6px;
+  padding: 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: $shadow-small;
+
+  &:hover {
+    background-color: rgb(37, 37, 37);
+  }
+}
+
+.nws-cursor-pointer {
+  cursor: pointer;
+}
+
+.nws-button-rounded {
+  width: fit-content;
+  border-radius: 100%;
+}
+
+.nws-send-button-icon {
+  color: $primary-color;
+  font-size: 2.2rem;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  font-variation-settings: 'FILL' 1,
+  'wght' 200,
+  'GRAD' 12,
+  'opsz' 60
+}
+
+.nws-horizontal-align-top {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.nws-horizontal-align-centered {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.nws-reply-button {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.nws-text-color-primary {
+  color: $primary-color;
+}

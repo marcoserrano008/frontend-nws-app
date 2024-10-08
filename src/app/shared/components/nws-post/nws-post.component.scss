@@ -1,0 +1,39 @@
+@import "src/assets/styles/commons/global-styles";
+
+.nws-post {
+  width: 100%;
+  align-content: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nws-post-body {
+  white-space: pre-line;
+}
+
+.nws-files-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.nws-file {
+  min-width: calc(50% - 4px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+
+  .nws-files-section {
+    flex-direction: column;
+  }
+
+  .nws-file {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

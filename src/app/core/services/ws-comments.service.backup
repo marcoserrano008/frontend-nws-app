@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import {Observable, Subject} from "rxjs";
+import {Comment} from "@nwsState/models/comment.model";
+import {WebSocketService} from "@core/services/web-socket.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WsCommentsService {
+  private _commentsSubject: Subject<Comment>;
+
+  constructor(private _webSocketService: WebSocketService) {
+    this._commentsSubject = new Subject<Comment>();
+    this._webSocketService.subscribe('/topic/comments', (message) => {
+      const comment = JSON.parse(message.body) as Comment;
+      this._commentsSubject.next(comment);
+    });
+  }
+
+  public get comment$(): Observable<Comment> {
+    return this._commentsSubject.asObservable();
+  }
+}

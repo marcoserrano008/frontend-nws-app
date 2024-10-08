@@ -1,0 +1,5 @@
+<section>
+  <ng-container *ngFor="let comment of comments; trackBy: trackByCommentId">
+    <nws-comment [comment]="comment"></nws-comment>
+  </ng-container>
+</section>
