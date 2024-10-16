@@ -1,14 +1,13 @@
 @import "src/assets/styles/commons/global-styles";
 
-
-
 .nws-news-feed {
   max-width: 800px;
-  margin: 25px auto 0;
+  margin: 25px auto;
   display: flex;
   flex-direction: column;
   gap: 36px;
   position: relative;
+  padding: 0 12px;
 }
 
 .nws-post-feed {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Observable} from "rxjs";
 import {NwsAlert} from "@core/models/nws-alert.model";
 import {AlertType} from "@core/enums/nws-alert-type.enum";
@@ -7,7 +7,9 @@ import {AlertService} from "@core/services/alert.service";
 @Component({
   selector: 'nws-global-alert',
   templateUrl: './nws-global-alert.component.html',
-  styleUrls: ['./nws-global-alert.component.scss']
+  styleUrls: ['./nws-global-alert.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsGlobalAlertComponent {
   public alerts$: Observable<NwsAlert[]>;

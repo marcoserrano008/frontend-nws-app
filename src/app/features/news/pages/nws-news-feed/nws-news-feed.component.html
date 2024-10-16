@@ -1,9 +1,5 @@
-<nws-new-posts-alert [newPostsCounter]="newBulletinsCounter" (postsReloaded)="postsReloaded()"></nws-new-posts-alert>
+<nws-new-posts-alert [newPostsCounter]="newBulletinsCounter$ | async" (postsReloaded)="postsReloaded()"></nws-new-posts-alert>
 <section class="nws-news-feed">
-
-<!--  <span *ngIf="newBulletinsCounter > 0">-->
-<!--    Hay {{newBulletinsCounter}} nuevos Posts, Haz click aqui para actualizar-->
-<!--  </span>-->
   <nws-search-posts></nws-search-posts>
 
   <ng-container *ngFor="let bulletin of bulletins$ | async; index as i">
@@ -12,7 +8,7 @@
       <section>
         <a class="nws-comment-link" [routerLink]="['/comments/post', bulletin.id]">
           <span class="material-symbols-outlined nws-label-text">forum</span>
-          Comments ({{bulletin.commentsCounter}})
+          Comments ({{ bulletin.commentsCounter }})
         </a>
       </section>
     </article>
@@ -27,4 +23,5 @@
 
 <button
   (click)="toggleCreatePostModal()"
-  class="nws-news-create-button nws-rounded nws-centered nws-label-text">+</button>
+  class="nws-news-create-button nws-rounded nws-centered nws-label-text">+
+</button>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {PostsService} from "@core/services/posts.service";
 import {CreateBulletinApiRequestModel} from "@core/models/http/create-bulletin-api-request.model";
 import * as PostsActions from "@nwsState/actions/posts.actions"
@@ -7,7 +7,9 @@ import {Store} from "@ngrx/store";
 @Component({
   selector: 'nws-create-post',
   templateUrl: './nws-create-post.component.html',
-  styleUrls: ['./nws-create-post.component.scss']
+  styleUrls: ['./nws-create-post.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsCreatePostComponent implements OnInit {
 

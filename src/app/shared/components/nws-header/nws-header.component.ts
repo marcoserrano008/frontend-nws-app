@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {NavigationEnd, NavigationStart, Router, RouterEvent} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
@@ -10,7 +10,9 @@ import {AuthService} from "@core/services/auth.service";
 @Component({
   selector: 'nws-header',
   templateUrl: './nws-header.component.html',
-  styleUrls: ['./nws-header.component.scss']
+  styleUrls: ['./nws-header.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsHeaderComponent implements OnInit {
 

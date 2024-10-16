@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {Subject} from "rxjs";
 import {AppState} from "@nwsState/app.state";
 import {Store} from "@ngrx/store";
@@ -8,7 +8,9 @@ import {debounceTime, takeUntil} from "rxjs/operators";
 @Component({
   selector: 'nws-search-posts',
   templateUrl: './nws-search-posts.component.html',
-  styleUrls: ['./nws-search-posts.component.scss']
+  styleUrls: ['./nws-search-posts.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsSearchPostsComponent implements OnInit, OnDestroy {
   private _searchSubject: Subject<string>;

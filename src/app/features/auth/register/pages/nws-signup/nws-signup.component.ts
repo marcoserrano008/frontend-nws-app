@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AuthService} from "@core/services/auth.service";
 import {CreateBulletinApiRequestModel} from "@core/models/http/create-bulletin-api-request.model";
 import {CreateUserRequestModel} from "@core/models/http/create-user-request.model";
@@ -7,7 +7,9 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-nws-signup',
   templateUrl: './nws-signup.component.html',
-  styleUrls: ['./nws-signup.component.scss']
+  styleUrls: ['./nws-signup.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsSignupComponent implements OnInit {
   public name: string;

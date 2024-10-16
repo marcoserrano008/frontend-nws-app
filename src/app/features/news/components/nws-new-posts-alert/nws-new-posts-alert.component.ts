@@ -1,18 +1,31 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewEncapsulation
+} from '@angular/core';
 import {Store} from "@ngrx/store";
 import * as PostsActions from "@nwsState/actions/posts.actions";
 
 @Component({
   selector: 'nws-new-posts-alert',
   templateUrl: './nws-new-posts-alert.component.html',
-  styleUrls: ['./nws-new-posts-alert.component.scss']
+  styleUrls: ['./nws-new-posts-alert.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsNewPostsAlertComponent implements OnInit, OnChanges {
-  @Input() newPostsCounter!: number;
+  @Input() newPostsCounter: number | null;
   @Output() postsReloaded: EventEmitter<void>;
   public isVisible: boolean;
 
   constructor(private _store: Store) {
+    this.newPostsCounter = 0;
     this.postsReloaded = new EventEmitter();
     this.isVisible = this.newPostsCounter > 0;
   }
@@ -22,7 +35,7 @@ export class NwsNewPostsAlertComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['newPostsCounter'] && !changes['newPostsCounter'].isFirstChange()) {
+    if (changes['newPostsCounter'] && !changes['newPostsCounter'].isFirstChange() && this.newPostsCounter) {
       this.isVisible = this.newPostsCounter > 0;
     }
   }

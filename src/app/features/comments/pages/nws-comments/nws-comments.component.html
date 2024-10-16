@@ -1,11 +1,11 @@
-<article class="nws-post-feed nws-news-feed">
+<article class="nws-news-feed nws-post-feed">
   <a class="nws-close-comment nws-label-text nws-text-large" routerLink="/news">&#10005;</a>
   <ng-container *ngIf="bulletin$ | async as bulletin; else loading">
     <nws-post [bulletin]="bulletin"></nws-post>
     <button (click)="toggleShowReplyInput()" class="nws-button-transparent nws-label-text nws-reply-button">
       <span class="material-symbols-outlined nws-text-medium-large">forum</span><span>Add a comment</span>
     </button>
-    <nws-create-comment *ngIf="showReplyInput" [postId]="_postId"></nws-create-comment>
+    <nws-create-comment *ngIf="showReplyInput" [postId]="postId"></nws-create-comment>
     <section class="nws-comment-list">
       <span>
           <span class="material-symbols-outlined nws-label-text">forum</span>

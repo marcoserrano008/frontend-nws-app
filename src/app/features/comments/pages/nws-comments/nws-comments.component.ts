@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {Observable, Subject} from "rxjs";
@@ -15,11 +15,13 @@ import * as PostsActions from "@nwsState/actions/posts.actions";
 @Component({
   selector: 'nws-comments',
   templateUrl: './nws-comments.component.html',
-  styleUrls: ['./nws-comments.component.scss']
+  styleUrls: ['./nws-comments.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsCommentsComponent implements OnInit, OnDestroy {
   public bulletin$: Observable<Post | undefined>;
-  public _postId!: number;
+  public postId!: number;
   public comments$: Observable<Comment[]>;
   public showReplyInput: boolean;
   public commentBody: string;
@@ -40,7 +42,7 @@ export class NwsCommentsComponent implements OnInit, OnDestroy {
     this._getIdFromRoute();
     this.comments$ = this._store.select(selectAllComments);
 
-    this._wsCommentsService.getCommentStream(this._postId)
+    this._wsCommentsService.getCommentStream(this.postId)
       .pipe(takeUntil(this._destroy$))
       .subscribe((comment: Comment) => {
         if(comment.parentCommentId) {
@@ -61,15 +63,15 @@ export class NwsCommentsComponent implements OnInit, OnDestroy {
     this._route.params
       .pipe(takeUntil(this._destroy$))
       .subscribe((params) => {
-        this._postId = +params['id'];
-        this.bulletin$ = this._store.select(selectPostById(this._postId))
+        this.postId = +params['id'];
+        this.bulletin$ = this._store.select(selectPostById(this.postId))
         this._loadComments();
       })
   }
 
   private _loadComments() {
-    if (this._postId) {
-      this._store.dispatch(CommentsActions.loadComments({postId: this._postId}));
+    if (this.postId) {
+      this._store.dispatch(CommentsActions.loadComments({postId: this.postId}));
     }
   }
 

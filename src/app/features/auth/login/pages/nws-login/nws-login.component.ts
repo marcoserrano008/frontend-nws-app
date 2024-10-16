@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Store} from "@ngrx/store";
 import * as AuthActions from "@nwsState/actions/auth.actions"
 import {Observable} from "rxjs";
@@ -9,7 +9,9 @@ import {error} from "ng-packagr/lib/utils/log";
 @Component({
   selector: 'app-nws-login',
   templateUrl: './nws-login.component.html',
-  styleUrls: ['./nws-login.component.scss']
+  styleUrls: ['./nws-login.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsLoginComponent implements OnInit {
 
