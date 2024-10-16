@@ -1,9 +1,10 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'nws-avatar',
   templateUrl: './nws-avatar.component.html',
-  styleUrls: ['./nws-avatar.component.scss']
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsAvatarComponent implements OnInit {
 

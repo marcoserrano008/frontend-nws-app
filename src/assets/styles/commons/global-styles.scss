@@ -1,7 +1,4 @@
-@import "projects/nws-system-ui/src/assets/styles/commons/tokens";
-@import "projects/nws-system-ui/src/lib/components/nws-button/nws-button.component";
-@import "projects/nws-system-ui/src/lib/components/nws-input/nws-input.component";
-@import "projects/nws-system-ui/src/lib/components/nws-textarea/nws-textarea.component";
+@import "/projects/nws-system-ui/src/assets/styles/nws-viewer-styles";
 
 .nws-label-text {
   color: $font-color-primary;
@@ -152,6 +149,10 @@
   align-items: center;
 }
 
+.nws-vertical-align-centered {
+  margin: auto 0;
+}
+
 .nws-reply-button {
   display: flex;
   flex-direction: row;
@@ -169,4 +170,13 @@
 
 .nws-text-color-primary {
   color: $primary-color;
+}
+
+.nws-profile-picture-small {
+  width: 35px;
+  height: 35px;
+}
+
+.nws-profile-picture-medium {
+  width: 50px;
 }

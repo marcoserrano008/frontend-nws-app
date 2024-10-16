@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'nws-button',
   templateUrl: './nws-button.component.html',
-  styleUrls: ['./nws-button.component.scss']
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsButtonComponent implements OnInit {
 

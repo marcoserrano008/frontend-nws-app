@@ -1,9 +1,10 @@
-import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'nws-alert',
   templateUrl: './nws-alert.component.html',
-  styleUrls: ['./nws-alert.component.scss']
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsAlertComponent implements OnInit {
   @Input() title: string;

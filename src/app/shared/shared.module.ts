@@ -9,11 +9,13 @@ import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {NwsDateFormaterPipe} from './pipes/nws-date-formater.pipe';
 import {ComponentsModule} from "@shared/components/components.module";
+import {NwsCreateCommentComponent} from "@shared/components/nws-create-comment/nws-create-comment.component";
 
 @NgModule({
   declarations: [
     NwsUserDetailComponent,
     NwsPostComponent,
+    NwsCreateCommentComponent,
     NwsDateFormaterPipe,
   ],
   imports: [
@@ -29,6 +31,7 @@ import {ComponentsModule} from "@shared/components/components.module";
     NwsFileDetailComponent,
     NwsPostComponent,
     DirectivesModule,
+    NwsCreateCommentComponent,
     ComponentsModule
   ]
 })

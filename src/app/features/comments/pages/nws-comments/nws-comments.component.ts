@@ -16,47 +16,55 @@ import * as PostsActions from "@nwsState/actions/posts.actions";
   selector: 'nws-comments',
   templateUrl: './nws-comments.component.html',
   styleUrls: ['./nws-comments.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsCommentsComponent implements OnInit, OnDestroy {
-  public bulletin$: Observable<Post | undefined>;
-  public postId!: number;
-  public comments$: Observable<Comment[]>;
-  public showReplyInput: boolean;
   public commentBody: string;
+  public postId!: number;
+  public showReplyInput: boolean;
+
+  public comments$: Observable<Comment[]>;
+  public bulletin$: Observable<Post | undefined>;
+
   private _destroy$: Subject<void>;
 
   constructor(private _route: ActivatedRoute,
               private _store: Store,
               private _commentsService: CommentsService,
               private _wsCommentsService: WsCommentsService) {
+    this.commentBody = '';
+    this.showReplyInput = false;
     this.bulletin$ = new Observable;
     this.comments$ = new Observable;
-    this.showReplyInput = false;
-    this.commentBody = '';
     this._destroy$ = new Subject<void>();
   }
 
   ngOnInit(): void {
+    this._initialize();
+  }
+
+  ngOnDestroy(): void {
+    this._finalize();
+  }
+
+  public toggleShowReplyInput(): void {
+    this.showReplyInput = !this.showReplyInput;
+  }
+
+  private _initialize(): void {
     this._getIdFromRoute();
     this.comments$ = this._store.select(selectAllComments);
 
     this._wsCommentsService.getCommentStream(this.postId)
       .pipe(takeUntil(this._destroy$))
       .subscribe((comment: Comment) => {
-        if(comment.parentCommentId) {
+        if (comment.parentCommentId) {
           this._addNewReplyToStore(comment.parentCommentId, comment);
         } else {
           this._addNewCommentToStore(comment);
         }
         this._reloadPosts();
       })
-  }
-
-  ngOnDestroy(): void {
-    this._destroy$.next();
-    this._destroy$.complete();
   }
 
   private _getIdFromRoute(): void {
@@ -69,25 +77,26 @@ export class NwsCommentsComponent implements OnInit, OnDestroy {
       })
   }
 
-  private _loadComments() {
+  private _loadComments(): void {
     if (this.postId) {
       this._store.dispatch(CommentsActions.loadComments({postId: this.postId}));
     }
   }
 
-  public toggleShowReplyInput(): void {
-    this.showReplyInput = !this.showReplyInput;
-  }
-
   private _addNewCommentToStore(comment: Comment): void {
-    this._store.dispatch(CommentsActions.addComment( { comment }));
+    this._store.dispatch(CommentsActions.addComment({comment}));
   }
 
   private _addNewReplyToStore(parentCommentId: number, reply: Comment): void {
-    this._store.dispatch(CommentsActions.addReply({ parentCommentId: parentCommentId, reply: reply }));
+    this._store.dispatch(CommentsActions.addReply({parentCommentId: parentCommentId, reply: reply}));
   }
 
   private _reloadPosts(): void {
-    this._store.dispatch(PostsActions.loadPosts( { body: '' }));
+    this._store.dispatch(PostsActions.loadPosts({body: ''}));
+  }
+
+  private _finalize(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 }

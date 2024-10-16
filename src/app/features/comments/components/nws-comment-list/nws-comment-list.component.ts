@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {CommentApiResponse} from "@core/models/http/comment-api-response.model";
 import {Comment} from "@nwsState/models/comment.model";
 
 @Component({
@@ -9,15 +8,11 @@ import {Comment} from "@nwsState/models/comment.model";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsCommentListComponent implements OnInit {
-
+export class NwsCommentListComponent {
   @Input() comments!: Comment[];
 
   constructor() {
     this.comments = [];
-  }
-
-  ngOnInit(): void {
   }
 
   public trackByCommentId(index: number, comment: Comment): number {

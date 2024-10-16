@@ -1,6 +1,4 @@
-@import "../../../assets/styles/commons/tokens";
-
-.nws-input-field {
+.nws-textarea-field {
   border: 1px solid $border-color-neutral;
   padding: 8px 10px;
   border-radius: 4px;
@@ -9,16 +7,11 @@
   transition: border-color 0.3s ease;
   box-sizing: border-box;
   background-color: $background-color-medium;
+  resize: none;
 
   &:focus {
     border-color: $border-color-neutral-focus;
     outline: none;
-  }
-
-  &:-webkit-autofill {
-    background-color: $border-color-neutral !important;
-    -webkit-box-shadow: 0 0 0px 1000px $border-color-neutral inset;
-    box-shadow: 0 0 0px 1000px $border-color-neutral inset;
   }
 }
 

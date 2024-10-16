@@ -11,8 +11,7 @@ import {Store} from "@ngrx/store";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsCreatePostComponent implements OnInit {
-
+export class NwsCreatePostComponent {
   @Output() closeModal: EventEmitter<void>;
   @Output() postCreated: EventEmitter<void>;
 
@@ -24,9 +23,6 @@ export class NwsCreatePostComponent implements OnInit {
     this.postCreated = new EventEmitter();
     this.files = [];
     this.postContent = '';
-  }
-
-  ngOnInit(): void {
   }
 
   public close(): void {
@@ -54,7 +50,6 @@ export class NwsCreatePostComponent implements OnInit {
       attachments: this.files,
     };
 
-    console.log("this is the post data", postData)
     this._postsService.postBulletin(postData)
       .subscribe(
         response => {
@@ -64,7 +59,7 @@ export class NwsCreatePostComponent implements OnInit {
           this._cleanForm();
         },
         error => {
-          console.error('Error al crear el boletin', error)
+          console.error('Error while creating post', error)
         }
       )
   }

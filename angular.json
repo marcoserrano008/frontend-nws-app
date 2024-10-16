@@ -34,7 +34,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "projects/nws-system-ui/src/assets/nws-styles.scss"
             ],
             "scripts": []
           },

@@ -1,5 +1,4 @@
 @import "src/assets/styles/commons/global-styles";
-@import "projects/nws-system-ui/src/lib/components/nws-button/nws-button.component";
 
 .nws-header {
   display: flex;
@@ -20,6 +19,7 @@
   width: 40px;
   height: 40px;
 }
+
 
 .nws-floating-menu-position {
   position: absolute;

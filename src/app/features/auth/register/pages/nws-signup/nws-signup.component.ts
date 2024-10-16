@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AuthService} from "@core/services/auth.service";
-import {CreateBulletinApiRequestModel} from "@core/models/http/create-bulletin-api-request.model";
 import {CreateUserRequestModel} from "@core/models/http/create-user-request.model";
 import {Router} from "@angular/router";
 
@@ -11,20 +10,17 @@ import {Router} from "@angular/router";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsSignupComponent implements OnInit {
-  public name: string;
+export class NwsSignupComponent {
   public lastName: string;
-  public username: string;
+  public name: string;
   public password: string;
+  public username: string;
 
   constructor(private _authService: AuthService, private _router: Router) {
-    this.name = '';
     this.lastName = '';
-    this.username = '';
+    this.name = '';
     this.password = '';
-  }
-
-  ngOnInit(): void {
+    this.username = '';
   }
 
   public createUser(): void {

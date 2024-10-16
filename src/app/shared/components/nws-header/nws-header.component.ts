@@ -11,18 +11,13 @@ import {AuthService} from "@core/services/auth.service";
   selector: 'nws-header',
   templateUrl: './nws-header.component.html',
   styleUrls: ['./nws-header.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsHeaderComponent implements OnInit {
-
+export class NwsHeaderComponent {
   public isFloatingMenuVisible: boolean;
 
   constructor(private _router: Router, private _authService: AuthService) {
     this.isFloatingMenuVisible = false;
-  }
-
-  ngOnInit(): void {
   }
 
   public toggleFloatingMenu(): void {

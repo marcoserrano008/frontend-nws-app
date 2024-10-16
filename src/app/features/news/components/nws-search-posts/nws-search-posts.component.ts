@@ -9,7 +9,6 @@ import {debounceTime, takeUntil} from "rxjs/operators";
   selector: 'nws-search-posts',
   templateUrl: './nws-search-posts.component.html',
   styleUrls: ['./nws-search-posts.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsSearchPostsComponent implements OnInit, OnDestroy {
@@ -18,10 +17,23 @@ export class NwsSearchPostsComponent implements OnInit, OnDestroy {
 
   constructor(private _store: Store<AppState>) {
     this._searchSubject = new Subject<string>();
-    this._destroy$ =  new Subject<void>();
+    this._destroy$ = new Subject<void>();
   }
 
   ngOnInit(): void {
+    this._initialize();
+  }
+
+  ngOnDestroy(): void {
+    this._finalize();
+  }
+
+  public onSearch(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this._searchSubject.next(input.value);
+  }
+
+  private _initialize(): void {
     this._searchSubject.pipe(
       debounceTime(1000),
       takeUntil(this._destroy$)
@@ -30,16 +42,11 @@ export class NwsSearchPostsComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onSearch(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    this._searchSubject.next(input.value);
-  }
-
   private _loadPosts(searchText: string = ''): void {
-    this._store.dispatch(PostsActions.loadPosts( { body: searchText }))
+    this._store.dispatch(PostsActions.loadPosts({body: searchText}))
   }
 
-  ngOnDestroy(): void {
+  private _finalize(): void {
     this._destroy$.next();
     this._destroy$.complete();
   }

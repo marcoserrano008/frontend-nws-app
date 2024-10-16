@@ -8,7 +8,7 @@ import {Comment} from "@nwsState/models/comment.model";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsCommentComponent implements OnInit {
+export class NwsCommentComponent {
   @Input() comment!: Comment;
 
   public showReplies: boolean;
@@ -17,9 +17,6 @@ export class NwsCommentComponent implements OnInit {
   constructor() {
     this.showReplies = false;
     this.showReplyInput = false;
-  }
-
-  ngOnInit(): void {
   }
 
   public toggleReplies(): void {

@@ -1,6 +1,7 @@
 <div class="nws-alerts-container">
-  <section *ngFor="let alert of (alerts$ | async); let i = index" class="nws-global-alert">
-    <header [ngSwitch]="alert.type" class="nws-global-alert__header">
+  <section class="nws-global-alert"
+           *ngFor="let alert of (alerts$ | async); let i = index" >
+    <header class="nws-global-alert__header" [ngSwitch]="alert.type">
       <ng-container *ngSwitchCase="AlertType.SUCCESS">
         <div class="nws-global-alert__header__status">
           <span class="material-symbols-outlined" style="color:green">check</span>
@@ -13,7 +14,9 @@
         </div>
         <span class="nws-global-alert__header__title">Error</span>
       </ng-container>
-      <button (click)="closeAlert(i)" class="nws-global-alert__header__close" aria-label="Close alert">&#10005;</button>
+      <button class="nws-global-alert__header__close"
+              aria-label="Close alert"
+              (click)="closeAlert(i)" >&#10005;</button>
     </header>
     <main class="nws-global-alert__content">{{ alert.message }}</main>
   </section>

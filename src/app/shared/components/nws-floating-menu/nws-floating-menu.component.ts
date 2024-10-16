@@ -7,11 +7,7 @@ import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@an
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsFloatingMenuComponent implements OnInit {
+export class NwsFloatingMenuComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

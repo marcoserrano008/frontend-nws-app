@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'lib-nws-dialog',
   templateUrl: './nws-dialog.component.html',
-  styleUrls: ['./nws-dialog.component.scss']
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsDialogComponent implements OnInit {
 

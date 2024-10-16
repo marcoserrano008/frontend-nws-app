@@ -1,4 +1,7 @@
-<nws-new-posts-alert [newPostsCounter]="newBulletinsCounter$ | async" (postsReloaded)="postsReloaded()"></nws-new-posts-alert>
+<nws-new-posts-alert [newPostsCounter]="newBulletinsCounter$ | async"
+                     (postsReloaded)="postsReloaded()">
+</nws-new-posts-alert>
+
 <section class="nws-news-feed">
   <nws-search-posts></nws-search-posts>
 
@@ -22,6 +25,7 @@
 </section>
 
 <button
+  class="nws-news-create-button nws-rounded nws-centered nws-logo-text-highlight"
   (click)="toggleCreatePostModal()"
-  class="nws-news-create-button nws-rounded nws-centered nws-label-text">+
+>+
 </button>

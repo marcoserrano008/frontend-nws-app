@@ -36,20 +36,11 @@ export class NwsNewsFeedComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._loadMorePosts();
-    this._selectBulletins();
-
-    this._wsBulletinService.bulletin$
-      .pipe(takeUntil(this._destroy$))
-      .subscribe((bulletin: Bulletin) => {
-        this.newBulletinsCounter$.next(this.newBulletinsCounter$.value + 1);
-        console.log("New bulletin in feed", bulletin);
-      })
+    this._initialize();
   }
 
   ngOnDestroy(): void {
-    this._destroy$.next();
-    this._destroy$.complete();
+    this._finalize();
   }
 
   @HostListener('window:scroll', [])
@@ -66,12 +57,32 @@ export class NwsNewsFeedComponent implements OnInit, OnDestroy {
     this.isCreatePostModalOpen = !this.isCreatePostModalOpen;
   }
 
-  private _selectBulletins() {
+  public postCreated(): void {
+    this.newBulletinsCounter$.next(this.newBulletinsCounter$.value - 1);
+  }
+
+  public postsReloaded(): void {
+    this.newBulletinsCounter$.next(0);
+  }
+
+  private _initialize(): void {
+    this._loadMorePosts();
+    this._selectBulletins();
+
+    this._wsBulletinService.bulletin$
+      .pipe(takeUntil(this._destroy$))
+      .subscribe((bulletin: Bulletin) => {
+        this.newBulletinsCounter$.next(this.newBulletinsCounter$.value + 1);
+        console.log("New bulletin in feed", bulletin);
+      })
+  }
+
+  private _selectBulletins(): void {
     this.bulletins$ = this._store.select(selectAllPosts)
       .pipe(takeUntil(this._destroy$));
   }
 
-  private _loadMorePosts() {
+  private _loadMorePosts(): void {
     if (this.loading) return;
     this.loading = true;
     this._store.dispatch(PostsActions.loadMorePosts({ page: this._page } ));
@@ -86,11 +97,8 @@ export class NwsNewsFeedComponent implements OnInit, OnDestroy {
    this._store.dispatch(PostsActions.loadPosts( { body: '' } ));
   }
 
-  public postCreated(): void {
-    this.newBulletinsCounter$.next(this.newBulletinsCounter$.value - 1);
-  }
-
-  public postsReloaded(): void {
-    this.newBulletinsCounter$.next(0);
+  private _finalize(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 }

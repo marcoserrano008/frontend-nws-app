@@ -1,4 +1,4 @@
-<article *ngIf="images.length > 0" class="nws-image-slider-container">
+<article class="nws-image-slider-container" *ngIf="images.length > 0">
   <section class="nws-image-container" [style.--aspect-ratio]="aspectRatio">
     <img [src]="images[currentIndex]" alt="Image" />
   </section>

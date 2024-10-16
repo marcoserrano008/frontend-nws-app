@@ -8,13 +8,9 @@ import {Attachment} from "@core/models/attachment.model";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsFileDetailComponent implements OnInit {
+export class NwsFileDetailComponent  {
   @Input() attachment!: Attachment;
 
   constructor() {
   }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -19,19 +19,17 @@ import * as PostsActions from "@nwsState/actions/posts.actions";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsNewPostsAlertComponent implements OnInit, OnChanges {
+export class NwsNewPostsAlertComponent implements OnChanges {
   @Input() newPostsCounter: number | null;
+
   @Output() postsReloaded: EventEmitter<void>;
+
   public isVisible: boolean;
 
   constructor(private _store: Store) {
     this.newPostsCounter = 0;
     this.postsReloaded = new EventEmitter();
     this.isVisible = this.newPostsCounter > 0;
-  }
-
-  ngOnInit(): void {
-
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -42,7 +40,7 @@ export class NwsNewPostsAlertComponent implements OnInit, OnChanges {
 
   public reloadPosts(): void {
     this.postsReloaded.emit();
-    this._store.dispatch(PostsActions.loadPosts( { body:'' } ));
+    this._store.dispatch(PostsActions.loadPosts({body: ''}));
     this.isVisible = false;
   }
 

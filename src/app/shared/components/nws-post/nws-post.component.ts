@@ -10,13 +10,10 @@ import {BulletinApiResponse} from "@core/models/http/bulletin-api-response.model
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsPostComponent implements OnInit {
+export class NwsPostComponent {
   @Input() bulletin!: Bulletin;
 
   constructor() {
-  }
-
-  ngOnInit(): void {
   }
 
   imageUrls = [
@@ -25,5 +22,4 @@ export class NwsPostComponent implements OnInit {
     'https://images.freeimages.com/images/large-previews/14d/leaf-in-autumn-1453894.jpg',
     'https://images.freeimages.com/images/large-previews/794/joyful-black-dog-by-water-0410-5697273.jpg'
   ]
-
 }

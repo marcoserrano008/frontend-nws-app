@@ -51,7 +51,7 @@
   position: absolute;
   bottom: 12px;
   left: 50%;
-  right: 50%;
+  transform: translateX(-50%);
   pointer-events: none;
   opacity: 0.3;
   color: $neutral-color-dark;

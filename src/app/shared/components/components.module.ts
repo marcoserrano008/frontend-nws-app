@@ -5,7 +5,6 @@ import { NwsImageSliderComponent } from './nws-image-slider/nws-image-slider.com
 import {NwsSystemUiModule} from "@nws/system-ui";
 import {NwsFileDetailComponent} from "@shared/components/nws-file-detail/nws-file-detail.component";
 import {NwsFloatingMenuComponent} from "@shared/components/nws-floating-menu/nws-floating-menu.component";
-import {NwsCreateCommentComponent} from "@shared/components/nws-create-comment/nws-create-comment.component";
 import {FormsModule} from "@angular/forms";
 import {NwsHeaderComponent} from "@shared/components/nws-header/nws-header.component";
 
@@ -13,7 +12,6 @@ import {NwsHeaderComponent} from "@shared/components/nws-header/nws-header.compo
   declarations: [
     NwsFileDetailComponent,
     NwsFloatingMenuComponent,
-    NwsCreateCommentComponent,
     NwsHeaderComponent,
     NwsGlobalAlertComponent,
     NwsImageSliderComponent
@@ -26,7 +24,6 @@ import {NwsHeaderComponent} from "@shared/components/nws-header/nws-header.compo
   exports: [
     NwsFileDetailComponent,
     NwsFloatingMenuComponent,
-    NwsCreateCommentComponent,
     NwsHeaderComponent,
     NwsGlobalAlertComponent,
     NwsImageSliderComponent

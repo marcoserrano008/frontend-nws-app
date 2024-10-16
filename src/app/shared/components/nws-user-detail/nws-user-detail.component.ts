@@ -9,7 +9,6 @@ import {SenderUserApiResponseModel} from "@core/models/http/sender-user-api-resp
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NwsUserDetailComponent {
-
   @Input() userDetail!: SenderUserApiResponseModel;
   @Input() information!: string;
 

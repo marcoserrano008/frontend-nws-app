@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Observable} from "rxjs";
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {Observable, Subject} from "rxjs";
 import {NwsAlert} from "@core/models/nws-alert.model";
 import {AlertType} from "@core/enums/nws-alert-type.enum";
 import {AlertService} from "@core/services/alert.service";
@@ -11,15 +11,27 @@ import {AlertService} from "@core/services/alert.service";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsGlobalAlertComponent {
+export class NwsGlobalAlertComponent implements OnDestroy {
   public alerts$: Observable<NwsAlert[]>;
   public AlertType = AlertType;
 
+  private destroy$: Subject<void>;
+
   constructor(private _alertService: AlertService) {
     this.alerts$ = this._alertService.getCurrentAlerts();
+    this.destroy$ = new Subject<void>();
+  }
+
+  ngOnDestroy(): void {
+    this._finalize();
   }
 
   public closeAlert(index: number): void {
     this._alertService.hideAlertAtIndex(index);
+  }
+
+  private _finalize(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

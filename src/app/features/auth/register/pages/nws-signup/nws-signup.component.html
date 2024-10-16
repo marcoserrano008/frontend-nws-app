@@ -3,25 +3,25 @@
     N<span class="nws-logo-text-highlight">e</span>ws-App
   </section>
   <section class="signup-form-section nws-centered">
-    <form (ngSubmit)="createUser()" class="nws-form-container">
+    <form class="nws-form-container" (ngSubmit)="createUser()">
       <span class="nws-centered nws-text-large">Register</span>
       <nws-label class="nws-left-aligned" [label]="'Name'">
-        <input type="text" [(ngModel)]="name" name="name" class="nws-input-field nws-input-text">
+        <input class="nws-input-field nws-input-text" type="text" name="name" [(ngModel)]="name" >
       </nws-label>
       <nws-label class="nws-left-aligned"  [label]="'Last Name'">
-        <input type="text" name="lastname" [(ngModel)]="lastName" class="nws-input-field nws-input-text">
+        <input class="nws-input-field nws-input-text" type="text" name="lastname" [(ngModel)]="lastName" >
       </nws-label>
       <nws-label class="nws-left-aligned" [label]="'Username'">
-        <input type="text" name="username" [(ngModel)]="username" class="nws-input-field nws-input-text">
+        <input class="nws-input-field nws-input-text" type="text" name="username" [(ngModel)]="username">
       </nws-label>
       <nws-label class="nws-left-aligned" [label]="'Password'">
-        <input type="password" name="password" [(ngModel)]="password"  class="nws-input-field nws-input-text">
+        <input class="nws-input-field nws-input-text" type="password" name="password" [(ngModel)]="password">
       </nws-label>
       <nws-label class="nws-left-aligned" [label]="'Confirm password'">
-        <input type="password" name="confirmPassword" class="nws-input-field nws-input-text">
+        <input class="nws-input-field nws-input-text" type="password" name="confirmPassword">
       </nws-label>
-      <button type="submit" class="nws-button nws-button--primary nws-label-text">Register</button>
-      <button type="button" class="nws-button nws-label-text nws-button-transparent" routerLink="/auth/login">Back to Login</button>
+      <button class="nws-button nws-button--primary nws-label-text" type="submit">Register</button>
+      <button class="nws-button nws-label-text nws-button-transparent"  type="button" routerLink="/auth/login">Back to Login</button>
     </form>
   </section>
 </article>
