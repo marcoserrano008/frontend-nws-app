@@ -7,7 +7,6 @@ import {LoginApiResponse} from "@core/models/http/login-api-response.model";
 import {CreateUserRequestModel} from "@core/models/http/create-user-request.model";
 import {ApiErrorResponse} from "@core/models/http/api-error-response.model";
 import {AlertService} from "@core/services/alert.service";
-import {error} from "ng-packagr/lib/utils/log";
 import {AUTH_MESSAGES} from "@core/constants/nws-auth-messages.constants";
 import {AlertType} from "@core/enums/nws-alert-type.enum";
 

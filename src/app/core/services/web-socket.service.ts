@@ -4,9 +4,7 @@ import * as SockJS from 'sockjs-client';
 import {BehaviorSubject, Observable} from "rxjs";
 import {filter, share, switchMap, take} from "rxjs/operators";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WebSocketService {
   private _stompClient: Client;
   private _topics: { [key: string]: Observable<IMessage> };

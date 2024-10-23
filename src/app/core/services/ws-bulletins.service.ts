@@ -4,9 +4,7 @@ import {Bulletin} from "@core/models/bulletin.model";
 import {WebSocketService} from "@core/services/web-socket.service";
 import {map} from "rxjs/operators";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WsBulletinsService {
   public bulletin$: Observable<Bulletin>;
 

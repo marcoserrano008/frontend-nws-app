@@ -23,7 +23,7 @@
 </section>
 <div *ngIf="showReplies ">
   <ng-container *ngFor="let reply of comment.replies; trackBy: trackByCommentId">
-    <section class="nws-reply">
+    <section class="nws-reply" [class.show]="showReplies">
       <nws-comment [comment]="reply"></nws-comment>
     </section>
   </ng-container>

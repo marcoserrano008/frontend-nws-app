@@ -4,9 +4,7 @@ import {Comment} from "@nwsState/models/comment.model";
 import {WebSocketService} from "@core/services/web-socket.service";
 import {map} from "rxjs/operators";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WsCommentsService {
   constructor(private webSocketService: WebSocketService) {
   }

@@ -3,8 +3,8 @@
     <img [src]="images[currentIndex]" alt="Image" />
   </section>
   <section class="nws-slider-navigation">
-    <button class="nws-slider-button" (click)="prevImage()" [disabled]="isPreviousBtnDisabled"><span class="nws-text-xl">&#10094;</span></button>
-    <button class="nws-slider-button" (click)="nextImage()"  [disabled]="isNextBtnDisabled"><span class="nws-text-xl">&#10095;</span></button>
+    <button class="nws-slider-button" (click)="prevImage()" [disabled]="isPreviousBtnDisabled"><span class="nws-text-large">&#10094;</span></button>
+    <button class="nws-slider-button" (click)="nextImage()"  [disabled]="isNextBtnDisabled"><span class="nws-text-large">&#10095;</span></button>
   </section>
   <div class="nws-image-counter" *ngIf="images.length > 1">
     {{ currentIndex + 1 }}/{{ images.length }}

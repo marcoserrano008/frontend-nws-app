@@ -11,6 +11,7 @@ import {NwsSystemUiModule} from "@nws/system-ui";
 import {FormsModule} from "@angular/forms";
 import { NwsSearchPostsComponent } from './components/nws-search-posts/nws-search-posts.component';
 import { NwsNewPostsAlertComponent } from './components/nws-new-posts-alert/nws-new-posts-alert.component';
+import {WsBulletinsService} from "@core/services/ws-bulletins.service";
 
 
 @NgModule({
@@ -20,6 +21,9 @@ import { NwsNewPostsAlertComponent } from './components/nws-new-posts-alert/nws-
     NwsCreatePostComponent,
     NwsSearchPostsComponent,
     NwsNewPostsAlertComponent
+  ],
+  providers: [
+    WsBulletinsService,
   ],
   imports: [
     CommonModule,

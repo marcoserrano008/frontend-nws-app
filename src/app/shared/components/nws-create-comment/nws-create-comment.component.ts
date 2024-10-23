@@ -1,4 +1,12 @@
-import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import {CreateCommentApiRequest} from "@core/models/http/create-comment-api-request.model";
 import {CommentsService} from "@core/services/comments.service";
 import {Store} from "@ngrx/store";
@@ -23,7 +31,8 @@ export class NwsCreateCommentComponent implements OnDestroy {
 
   constructor(private _commentsService: CommentsService,
               private _store: Store,
-              private _route: ActivatedRoute) {
+              private _route: ActivatedRoute,
+              private _changeDetectorRef: ChangeDetectorRef) {
     this.commentBody = '';
     this._createCommentRequest = {
       content: this.commentBody,
@@ -49,6 +58,7 @@ export class NwsCreateCommentComponent implements OnDestroy {
       this._commentsService.postComment(this._createCommentRequest, this.postId).subscribe({
         next: (comment) => {
           this.commentBody = '';
+          this._changeDetectorRef.detectChanges();
         },
         error: (error) => {
           console.error("Comment can't be published", error);

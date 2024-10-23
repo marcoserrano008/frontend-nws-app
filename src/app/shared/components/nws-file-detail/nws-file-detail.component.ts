@@ -8,9 +8,20 @@ import {Attachment} from "@core/models/attachment.model";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NwsFileDetailComponent  {
+export class NwsFileDetailComponent implements OnInit {
   @Input() attachment!: Attachment;
 
+  public fileDownloadUrl: string;
+
   constructor() {
+    this.fileDownloadUrl = '';
+  }
+
+  ngOnInit(): void {
+    this._initialize();
+  }
+
+  private _initialize(): void {
+    this.fileDownloadUrl = `http://localhost:8092/file/${this.attachment.field}/download`
   }
 }

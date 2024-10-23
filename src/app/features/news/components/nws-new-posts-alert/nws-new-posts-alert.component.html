@@ -1,7 +1,12 @@
-<header class="nws-new-posts-alert-container nws-centered"
+<header class="nws-new-posts-alert-container"
         *ngIf="isVisible && newPostsCounter! > 0">
   <section class="nws-label-text">
-    There are {{ newPostsCounter }} new news, click
+    <span *ngIf="newPostsCounter! === 1">
+    There is a new post, click
+    </span>
+    <span *ngIf="newPostsCounter! > 1">
+    There are {{ newPostsCounter }} new posts, click
+    </span>
     <button class="nws-button-transparent nws-label-text nws-text-color-primary nws-text-semibold"
             (click)="reloadPosts()">here
     </button>

@@ -20,6 +20,9 @@ import {AuthService} from "@core/services/auth.service";
 import {AlertService} from "@core/services/alert.service";
 import {CommentsService} from "@core/services/comments.service";
 import {PostsService} from "@core/services/posts.service";
+import {WebSocketService} from "@core/services/web-socket.service";
+import {WsBulletinsService} from "@core/services/ws-bulletins.service";
+import {WsCommentsService} from "@core/services/ws-comments.service";
 
 @NgModule({
   declarations: [
@@ -56,7 +59,9 @@ import {PostsService} from "@core/services/posts.service";
     AuthService,
     AlertService,
     CommentsService,
-    PostsService
+    PostsService,
+    WebSocketService,
+    WsCommentsService
   ],
   bootstrap: [AppComponent]
 })
